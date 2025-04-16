@@ -74,7 +74,7 @@ async fn process(socket: TcpStream, state_store: StateStoreRef, dump_file: DumpF
 /// The listener for redis-oxide. Accepts connections and spawns handlers.
 pub async fn socket_listener(state_store: StateStoreRef, dump_file: DumpFile, config: Config) {
     // First, get the address determined and parsed.
-    let addr_str = format!("{}:{}", "127.0.0.1", config.port);
+    let addr_str = format!("{}:{}", "0.0.0.0", config.port);
     let addr = match addr_str.parse::<SocketAddr>() {
         Ok(s) => s,
         Err(e) => {
